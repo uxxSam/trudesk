@@ -84,7 +84,7 @@ configExists = fs.existsSync(configFile);
 if (process.env.HEROKU) {
     //Build Config for Heroku
     var configHeroku = {
-        "url": "http://localhost:8118",
+        "url": "https://localhost:8118",
         "port": "8118"
     };
 

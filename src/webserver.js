@@ -17,9 +17,15 @@ var express = require('express'),
     winston = require('winston'),
     middleware = require('./middleware'),
     routes = require('./routes'),
-    server = require('http').createServer(WebServer),
-
+    fs = require('fs'),
     port = process.env.PORT || 8118;
+
+var options = {
+  key: fs.readFileSync('privateKey.key'),
+  cert: fs.readFileSync('certificate.crt')
+};
+
+var server = require('https').createServer(options, WebServer);
 
 (function (app) {
     "use strict";
